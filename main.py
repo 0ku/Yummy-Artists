@@ -37,29 +37,33 @@ time.sleep(6)
 start = (536,142)
 width = 15
 previous = (start[0]-6,start[1]-6)
-reset = (860,650)
 startX = 6 
-startY = 30
+#startY = 30
+color_speed = 10
+color_select = (860,650)
+hex_select = (866,590)
+#reset = (860,650-color_speed)
 for x in range(startX,32):
     for y in range(0,32):
         coordinate = x1,y1 = x, y
         print(coordinate)
         #color select
         time.sleep(0.2)
-        moveCursor(860,650,864,655,10)
+        moveCursor(color_select[0],color_select[1]-color_speed,color_select[0],color_select[1],color_speed)
         time.sleep(0.2)
         pydirectinput.click()
         #hex code
-        moveCursor(864,655,866,590,10)
+        moveCursor(hex_select[0],hex_select[1]-color_speed,hex_select[0],hex_select[1],color_speed)
         pydirectinput.click()
         pydirectinput.typewrite(rgb2hex(image.getpixel(coordinate)[0],image.getpixel(coordinate)[1],image.getpixel(coordinate)[2]))
         pydirectinput.press('enter')
         #close
-        moveCursor(866,590,864,655,10)
+        moveCursor(color_select[0],color_select[1]-color_speed,color_select[0],color_select[1],color_speed)
         pydirectinput.click()
-        moveCursor(previous[0],previous[1],start[0]+(x*width),start[1]+(y*width),2)
-        previous = (start[0]+(x*width),start[1]+(y*width))
+        #moveCursor(previous[0],previous[1],start[0]+(x*width),start[1]+(y*width),2)
+        moveCursor(start[0]+(x*width)-1,start[1]+(y*width)-1,start[0]+(x*width),start[1]+(y*width),1)
+        #previous = (start[0]+(x*width),start[1]+(y*width))
         pydirectinput.click()
-        if y == 31:
-            previous = (previous[0],previous[1]-(width*31))
+        #if y == 31:
+            #previous = (previous[0],previous[1]-(width*31))
         #print(image.getpixel(coordinate))
