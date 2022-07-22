@@ -30,6 +30,7 @@ def moveCursor(currentX,currentY,targetX,targetY,speed):
 handle = Image.open(f"images/{image_name}")
 image = handle.resize((32, 32)).convert("RGB")
 image.show()
+input("confirm")
 print("Image compiled")
 time.sleep(6)
 #print("Enter (0,0) position:")
@@ -64,7 +65,7 @@ for x in range(startX,32):
         moveCursor(color_select[0],color_select[1]-(color_speed*4),color_select[0],color_select[1],color_speed)
         pydirectinput.click()
         #moveCursor(previous[0],previous[1],start[0]+(x*width),start[1]+(y*width),2)
-        moveCursor(start[0]+(x*width)-3,start[1]+(y*width),start[0]+(x*width)-1,start[1]+(y*width),1)
+        moveCursor(start[0]+(x*width)-3,start[1]+(y*width),start[0]+(x*width)+2,start[1]+(y*width),1)
         #previous = (start[0]+(x*width),start[1]+(y*width))
         pydirectinput.click()
         #if y == 31:
