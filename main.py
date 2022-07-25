@@ -28,7 +28,10 @@ def moveCursor(currentX,currentY,targetX,targetY,speed):
             pydirectinput.moveTo(currentX,currentY)
 count = 0
 queue = []
-queue = ["cherry1.png","bannette.png","cherry2.png","cherry3.png"]
+queue = ["anime7.png","anime8.png","anime9.png","anime10.png"]
+queue = ["anime1.png","anime2.png","anime3.png","anime4.png","anime5.png","anime10.png"]
+for test in queue:
+    sample = Image.open(f"images/{test}")
 for image_name in queue:
     count+=1
     handle = Image.open(f"images/{image_name}")
